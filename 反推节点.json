@@ -1,0 +1,205 @@
+{
+  "last_node_id": 34,
+  "last_link_id": 48,
+  "nodes": [
+    {
+      "id": 31,
+      "type": "LoadImage",
+      "pos": [
+        1158.5408935546875,
+        710.4306030273438
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            48
+          ],
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "366afd387afec4a8a0528c495469953.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1534.9571533203125,
+        303.6581726074219
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 46,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 33,
+      "type": "Joy_caption_two",
+      "pos": [
+        1141.844970703125,
+        419.01153564453125
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "joy_two_pipeline",
+          "type": "JoyTwoPipeline",
+          "link": 47,
+          "label": "JoyCaptionTwo"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 48,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            46
+          ],
+          "label": "提示词",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Joy_caption_two"
+      },
+      "widgets_values": [
+        "Descriptive",
+        "long",
+        false
+      ]
+    },
+    {
+      "id": 34,
+      "type": "Joy_caption_two_load",
+      "pos": [
+        1155.5052490234375,
+        273.3020324707031
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "JoyTwoPipeline",
+          "type": "JoyTwoPipeline",
+          "links": [
+            47
+          ],
+          "label": "JoyCaptionTwo"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Joy_caption_two_load"
+      },
+      "widgets_values": [
+        "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit"
+      ]
+    }
+  ],
+  "links": [
+    [
+      46,
+      33,
+      0,
+      32,
+      0,
+      "STRING"
+    ],
+    [
+      47,
+      34,
+      0,
+      33,
+      0,
+      "JoyTwoPipeline"
+    ],
+    [
+      48,
+      31,
+      0,
+      33,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7972024500000005,
+      "offset": [
+        -554.7920569725912,
+        -7.372087011746217
+      ]
+    },
+    "ue_links": []
+  },
+  "version": 0.4
+}

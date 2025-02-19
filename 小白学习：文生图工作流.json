@@ -1,0 +1,570 @@
+{
+  "last_node_id": 16,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        415,
+        186
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            4
+          ],
+          "slot_index": 0,
+          "label": "条件"
+        }
+      ],
+      "title": "正向提示词",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A goddess wearing a wedding dress"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        407.480712890625,
+        387.62017822265625
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ],
+          "slot_index": 0,
+          "label": "条件"
+        }
+      ],
+      "title": "反向提示词",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "man JK， Dogs, cats.\nembedding:EasyNegative, "
+      ]
+    },
+    {
+      "id": 10,
+      "type": "Note",
+      "pos": [
+        -40.532188415527344,
+        609.2079467773438
+      ],
+      "size": [
+        380.0895690917969,
+        489.1256408691406
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Checkpoint大模型的注释",
+      "properties": {},
+      "widgets_values": [
+        "这是大模型。\n决定你出图风格的关键。\n你选动漫风格大模型你后面出的成品图就是动漫风格。\n你选的是真实系的大模型，你后面成品图就是真实的风格。\n如果是flux那种的，你只需要在提示词里写真实或者动漫他就给你真实或者动漫的成品图！\n这个存放路径一般是根目录<models<checkpoints<放这里！\n下面是我的路径，你可以对照下\nD:\\Stable_Diffusion\\ComfyUI\\HZ_Comfyui\\ComfyUI-aki-v1.4\\models\\checkpoints\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 11,
+      "type": "Note",
+      "pos": [
+        416.18994140625,
+        605.0687255859375
+      ],
+      "size": [
+        389.74835205078125,
+        500.16424560546875
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Clip正反面提示词的注释",
+      "properties": {},
+      "widgets_values": [
+        "正反面提示词，就是字面意思！\n正面提示词你想让图片出现的东西。\n反面提示词你不想让图片出现的东西。\n举个栗子\n正向提示词：一个穿着婚纱的女神。\n反向提示词：男人，JK，狗，猫。\nembedding:EasyNegative, \n这个是一个反面提示词的组合，你不知道写什么反向提示词就写这个，里面嵌入了很多反向提示词（不想出现多手多脚，画质模糊不高清等..）\n所以 你滴 M3？"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 13,
+      "type": "Note",
+      "pos": [
+        830.1378173828125,
+        611.9679565429688
+      ],
+      "size": [
+        389.74835205078125,
+        500.16424560546875
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "空Leatent",
+      "properties": {},
+      "widgets_values": [
+        "你出图的大小与你出图的次数"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 12,
+      "type": "Note",
+      "pos": [
+        1245.46484375,
+        617.487060546875
+      ],
+      "size": [
+        389.74835205078125,
+        500.16424560546875
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "K采样器的注释",
+      "properties": {},
+      "widgets_values": [
+        "对于新人要理解所有还是有点难，\n参数的话你只需要改几个地方\n首先是\n运行后操作：里面就随机和固定2选一\n步数的话20-30之间\nCFG的话6.5-8之间\n默认/看自己喜欢\n默认/看自己喜欢\n默认\n如果你不是用flux的话就改上面这些就行\n如果用flux模型的话，CFG必须必须必须改成1，其他默认一样出好图"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 14,
+      "type": "Note",
+      "pos": [
+        1648.372802734375,
+        617.4871215820312
+      ],
+      "size": [
+        389.74835205078125,
+        500.16424560546875
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "VAE解码",
+      "properties": {},
+      "widgets_values": [
+        "暂时不用管,跟着连"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 15,
+      "type": "Note",
+      "pos": [
+        2048.522216796875,
+        621.6265869140625
+      ],
+      "size": [
+        389.74835205078125,
+        500.16424560546875
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "保存图像",
+      "properties": {},
+      "widgets_values": [
+        "字面意思，保存你的图像到\n根目录里的output\n我的目录是\nD:\\Stable_Diffusion\\ComfyUI\\HZ_Comfyui\\ComfyUI-aki-v1.4\\output\n你可以对比下"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 16,
+      "type": "Note",
+      "pos": [
+        193.68141174316406,
+        1168.825927734375
+      ],
+      "size": [
+        1960.82421875,
+        482.8366394042969
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "总结",
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI的文生图工作流就像一条做菜的流水线，每个步骤都有专门的工具（节点）来处理。用大白话给你解释：\n\n选菜谱（加载模型）\n先选你要用的大模型，就像选菜谱决定今天做川菜还是粤菜。这个节点决定了画风的基础12。\n\n备食材（写提示词）\n在\"正面提示词\"写想要的内容（比如：阳光下的向日葵），在\"负面提示词\"写不想要的内容（比如：不要模糊）。这两个框就像告诉厨师要放什么调料、不要放什么13。\n\n炒菜火候（采样器）\n这里控制生成图片的精细度：\n\n步数=翻炒次数（一般25-35步，越多越精细但更慢）\n随机种子=炒菜手势（固定种子能做出相同味道）\n减噪=火候大小（太小会糊，太大会没味道）13\n装盘上菜（生成图片）\n最后把处理好的\"菜\"（潜在图像）解码成你能看到的图片，就像把炒好的菜装盘端上来14。\n\n整个过程就像：选菜谱→备料→控制火候炒菜→装盘。所有节点用线连起来，数据像水流一样从左边流到右边。你可以先按默认设置试试，之后慢慢调整提示词和参数，就像学做菜先按菜谱来，熟练了再自己创新2"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        857.0487670898438,
+        319.02142333984375
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            2
+          ],
+          "slot_index": 0,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1726.930419921875,
+        336.40692138671875
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -18.09645652770996,
+        332.11944580078125
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ],
+          "slot_index": 0,
+          "label": "模型"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3,
+            5
+          ],
+          "slot_index": 1,
+          "label": "CLIP"
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "slot_index": 2,
+          "label": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "majicmixRealistic_v7.safetensors"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        1265.4425048828125,
+        209.63070678710938
+      ],
+      "size": [
+        315,
+        474
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 2,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ],
+          "slot_index": 0,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        268066738105794,
+        "randomize",
+        20,
+        8,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        2126.24853515625,
+        309.0419921875
+      ],
+      "size": [
+        210,
+        270
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      5,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      3,
+      4,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      4,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      4,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      9,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.40909090909091006,
+      "offset": {
+        "0": 759.7034301757812,
+        "1": 361.6611328125
+      }
+    },
+    "ue_links": []
+  },
+  "version": 0.4
+}
